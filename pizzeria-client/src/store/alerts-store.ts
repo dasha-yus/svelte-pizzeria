@@ -1,0 +1,22 @@
+import { writable } from "svelte/store";
+
+export const toasts = writable([]);
+
+export const dismissToast = (id) => {
+  toasts.update((all) => all.filter((t) => t.id !== id));
+};
+
+export const addToast = (toast) => {
+  const id = Math.floor(Math.random() * 10000);
+
+  const defaults = {
+    id,
+    type: "info",
+    timeout: 5000,
+  };
+
+  const t = { ...defaults, ...toast };
+  toasts.update((all) => [t, ...all]);
+
+  if (t.timeout) setTimeout(() => dismissToast(id), t.timeout);
+};

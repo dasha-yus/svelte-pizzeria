@@ -1,0 +1,524 @@
+[
+  {
+    "name": "4 сезона",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/4_sezona-thumbnail-480x480.png",
+    "ingredients": [
+      "соус ранч",
+      "сыр моцарелла",
+      "пепперони",
+      "опята",
+      "томаты",
+      "фета",
+      "ананас",
+      "креветки"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 420,
+        "price": 22.99
+      },
+      {
+        "size": "M",
+        "weight": 600,
+        "price": 29.49
+      },
+      {
+        "size": "L",
+        "weight": 815,
+        "price": 35.49
+      }
+    ],
+    "details": {
+      "proteins": 9.33,
+      "fats": 12.11,
+      "carbohydrates": 24.85,
+      "energy_value": 247.39
+    }
+  },
+  {
+    "name": "Супер Вегги",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2024/01/22/Superveggi_480%D1%85480-thumbnail-480x480.png",
+    "ingredients": [
+      "ананас",
+      "лук",
+      "сладкий перец",
+      "сыр моцарелла",
+      "томатный соус",
+      "фасоль",
+      "шампиньоны"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 385,
+        "price": 14.99
+      },
+      {
+        "size": "M",
+        "weight": 595,
+        "price": 23.99
+      },
+      {
+        "size": "L",
+        "weight": 935,
+        "price": 29.99
+      }
+    ],
+    "details": {
+      "proteins": 9.16,
+      "fats": 5.42,
+      "carbohydrates": 28.57,
+      "energy_value": 200.68
+    }
+  },
+  {
+    "name": "Баварская",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/bavarchkaya-thumbnail-480x480.png",
+    "ingredients": [
+      "баварские колбаски",
+      "пармезан",
+      "соус Барбекю",
+      "сыр моцарелла",
+      "халапеньо",
+      "мюнхенские колбаски"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 380,
+        "price": 14.99
+      },
+      {
+        "size": "M",
+        "weight": 540,
+        "price": 23.99
+      },
+      {
+        "size": "L",
+        "weight": 835,
+        "price": 29.99
+      }
+    ],
+    "details": {
+      "proteins": 13.04,
+      "fats": 6.78,
+      "carbohydrates": 29.62,
+      "energy_value": 249.7
+    }
+  },
+  {
+    "name": "Гавайская",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2024/01/24/gavayskaya9_new-thumbnail-480x480.png",
+    "ingredients": [
+      "ананас",
+      "ветчина",
+      "курица",
+      "сыр моцарелла",
+      "сырный соус"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 405,
+        "price": 18.99
+      },
+      {
+        "size": "M",
+        "weight": 600,
+        "price": 26.49
+      },
+      {
+        "size": "L",
+        "weight": 895,
+        "price": 32.99
+      }
+    ],
+    "details": {
+      "proteins": 9.84,
+      "fats": 9.02,
+      "carbohydrates": 25.29,
+      "energy_value": 221.81
+    }
+  },
+  {
+    "name": "Ветчина и Грибы",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/vetchina_i_griby-thumbnail-480x480.png",
+    "ingredients": ["шампиньоны", "ветчина", "томатный соус", "сыр моцарелла"],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 395,
+        "price": 14.99
+      },
+      {
+        "size": "M",
+        "weight": 580,
+        "price": 23.99
+      },
+      {
+        "size": "L",
+        "weight": 880,
+        "price": 29.99
+      }
+    ],
+    "details": {
+      "proteins": 9.15,
+      "fats": 6.29,
+      "carbohydrates": 25.88,
+      "energy_value": 196.49
+    }
+  },
+  {
+    "name": "Фермерская",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/fermerskaya-thumbnail-480x480.png",
+    "ingredients": ["сыр моцарелла", "ветчина", "огурцы", "соус Ранч"],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 385,
+        "price": 14.99
+      },
+      {
+        "size": "M",
+        "weight": 560,
+        "price": 23.99
+      },
+      {
+        "size": "L",
+        "weight": 815,
+        "price": 29.99
+      }
+    ],
+    "details": {
+      "proteins": 9.06,
+      "fats": 11.8,
+      "carbohydrates": 26.31,
+      "energy_value": 248.19
+    }
+  },
+  {
+    "name": "Барбекю",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/barbecue-thumbnail-480x480.png",
+    "ingredients": [
+      "бекон",
+      "курица",
+      "лук",
+      "соус Барбекю",
+      "сыр моцарелла",
+      "шампиньоны"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 385,
+        "price": 18.99
+      },
+      {
+        "size": "M",
+        "weight": 550,
+        "price": 26.49
+      },
+      {
+        "size": "L",
+        "weight": 835,
+        "price": 32.99
+      }
+    ],
+    "details": {
+      "proteins": 10.14,
+      "fats": 7.17,
+      "carbohydrates": 29.18,
+      "energy_value": 223.23
+    }
+  },
+  {
+    "name": "Грибная с голубым сыром",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/gribnaya-thumbnail-480x480.png",
+    "ingredients": [
+      "голубой сыр",
+      "соу Ранч",
+      "сыр моцарелла",
+      "шампиньоны",
+      "опята"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 390,
+        "price": 18.99
+      },
+      {
+        "size": "M",
+        "weight": 585,
+        "price": 26.49
+      },
+      {
+        "size": "L",
+        "weight": 870,
+        "price": 32.99
+      }
+    ],
+    "details": {
+      "proteins": 9.03,
+      "fats": 11.5,
+      "carbohydrates": 25.67,
+      "energy_value": 243.91
+    }
+  },
+  {
+    "name": "Маргарита",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/margarita-thumbnail-480x480.png",
+    "ingredients": ["сыр моцарелла x1.5", "томатный соус"],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 355,
+        "price": 8.99
+      },
+      {
+        "size": "M",
+        "weight": 550,
+        "price": 16.49
+      },
+      {
+        "size": "L",
+        "weight": 805,
+        "price": 22.49
+      }
+    ],
+    "details": {
+      "proteins": 10.99,
+      "fats": 7.87,
+      "carbohydrates": 28.57,
+      "energy_value": 230.19
+    }
+  },
+  {
+    "name": "Пепперони",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/pepperoni-thumbnail-480x480.png",
+    "ingredients": ["сыр моцарелла", "томатный соус", "пепперони"],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 360,
+        "price": 14.99
+      },
+      {
+        "size": "M",
+        "weight": 515,
+        "price": 23.99
+      },
+      {
+        "size": "L",
+        "weight": 795,
+        "price": 29.99
+      }
+    ],
+    "details": {
+      "proteins": 10.34,
+      "fats": 9.78,
+      "carbohydrates": 28.31,
+      "energy_value": 224
+    }
+  },
+  {
+    "name": "Тоскана",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/toskana-thumbnail-480x480.png",
+    "ingredients": [
+      "курица",
+      "сыр моцарелла",
+      "соус Ранч",
+      "томаты",
+      "фета",
+      "шпинат"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 385,
+        "price": 20.99
+      },
+      {
+        "size": "M",
+        "weight": 540,
+        "price": 29.49
+      },
+      {
+        "size": "L",
+        "weight": 825,
+        "price": 35.49
+      }
+    ],
+    "details": {
+      "proteins": 10.01,
+      "fats": 12.42,
+      "carbohydrates": 26.71,
+      "energy_value": 260.25
+    }
+  },
+  {
+    "name": "Охотничья",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/%D0%BE%D1%85%D0%BE%D1%82%D0%BD%D0%B8%D1%87%D1%8C%D1%8F-thumbnail-480x480.png",
+    "ingredients": [
+      "баварские колбаски",
+      "соус Ранч",
+      "сыр моцарелла",
+      "шампиньоны"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 370,
+        "price": 12.99
+      },
+      {
+        "size": "M",
+        "weight": 535,
+        "price": 20.99
+      },
+      {
+        "size": "L",
+        "weight": 845,
+        "price": 26.99
+      }
+    ],
+    "details": {
+      "proteins": 12.6,
+      "fats": 11.81,
+      "carbohydrates": 26.13,
+      "energy_value": 279.47
+    }
+  },
+  {
+    "name": "5 Сыров",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/5_syrov-thumbnail-480x480.png",
+    "ingredients": [
+      "голубой сыр",
+      "пармезан",
+      "сыр моцарелла",
+      "фета",
+      "чеддер"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 345,
+        "price": 20.99
+      },
+      {
+        "size": "M",
+        "weight": 515,
+        "price": 29.49
+      },
+      {
+        "size": "L",
+        "weight": 790,
+        "price": 35.49
+      }
+    ],
+    "details": {
+      "proteins": 11.26,
+      "fats": 10.53,
+      "carbohydrates": 28.08,
+      "energy_value": 253.13
+    }
+  },
+  {
+    "name": "Креветки с ананасом",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/krevetki_s_ananasom-thumbnail-480x480.png",
+    "ingredients": [
+      "ананас",
+      "креветки х2",
+      "сыр моцарелла",
+      "соу Ранч",
+      "шампиньоны"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 395,
+        "price": 20.99
+      },
+      {
+        "size": "M",
+        "weight": 525,
+        "price": 29.49
+      },
+      {
+        "size": "L",
+        "weight": 825,
+        "price": 35.49
+      }
+    ],
+    "details": {
+      "proteins": 9.72,
+      "fats": 11.45,
+      "carbohydrates": 27.33,
+      "energy_value": 252.72
+    }
+  },
+  {
+    "name": "Говядина Бургер",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/govyadina_burger-thumbnail-480x480.png",
+    "ingredients": [
+      "лук",
+      "огурцы",
+      "сыр моцарелла",
+      "соу Бургер",
+      "телятина х1.5",
+      "шампиньоны"
+    ],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 405,
+        "price": 18.99
+      },
+      {
+        "size": "M",
+        "weight": 585,
+        "price": 26.49
+      },
+      {
+        "size": "L",
+        "weight": 890,
+        "price": 32.49
+      }
+    ],
+    "details": {
+      "proteins": 9.19,
+      "fats": 9.25,
+      "carbohydrates": 26.42,
+      "energy_value": 226.62
+    }
+  },
+  {
+    "name": "Карбонара",
+    "image": "https://media.dominos.by/__sized__/menu/product_osg_image/2023/11/02/carbonara-thumbnail-480x480.png",
+    "ingredients": ["бекон", "ветчина", "сыр моцарелла", "лук", "шампиньоны"],
+    "sizes": [
+      {
+        "size": "S",
+        "weight": 360,
+        "price": 18.99
+      },
+      {
+        "size": "M",
+        "weight": 545,
+        "price": 26.49
+      },
+      {
+        "size": "L",
+        "weight": 805,
+        "price": 32.99
+      }
+    ],
+    "details": {
+      "proteins": 9.78,
+      "fats": 8.92,
+      "carbohydrates": 26.37,
+      "energy_value": 225.83
+    }
+  }
+]
