@@ -14,7 +14,7 @@
           title={toast.title}
           subtitle={toast.message}
           caption={new Date().toLocaleString()}
-          on:close={() => dismissToast(toast.id)}
+          on:close={() => dismissToast(toast.id || "")}
         />
       </div>
     {/each}

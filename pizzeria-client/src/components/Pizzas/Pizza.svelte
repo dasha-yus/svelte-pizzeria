@@ -2,6 +2,12 @@
   import { createEventDispatcher } from "svelte";
   import { ContentSwitcher, Switch, Button } from "carbon-components-svelte";
   import ShoppingCart from "carbon-icons-svelte/lib/ShoppingCart.svelte";
+  import { TrashCan, Edit } from "carbon-icons-svelte";
+
+  import API from "../../services/api";
+  import { addToast } from "../../store/alerts-store";
+  import pizzas from "../../store/pizzas-store";
+  import DeleteConfirmation from "../UI/DeleteConfirmation.svelte";
 
   export let id: string;
   export let name: string;
@@ -10,12 +16,32 @@
   export let sizes: any[];
 
   let selectedSize = 1;
+  let isAdmin = true;
 
   const dispatch = createEventDispatcher();
+
+  const deletePizza = async () => {
+    try {
+      await API.delete(`/pizzas/${id}`);
+      pizzas.removePizza(id);
+      addToast({
+        type: "success",
+        title: "Удаление завершено",
+        message: `Пицца '${name}' успешно удалена`,
+      });
+    } catch (error) {
+      addToast({
+        type: "error",
+        title: "Ошибка",
+        message: `Не удалось удалить пиццу '${name}'`,
+      });
+    }
+  };
 </script>
 
 <div class="pizza">
   <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
   <img
     src={image}
     alt={name}
@@ -34,7 +60,21 @@
   </ContentSwitcher>
   <div class="footer">
     <p class="price">{sizes[selectedSize].price} руб.</p>
-    <Button icon={ShoppingCart}>В корзину</Button>
+    {#if isAdmin}
+      <div>
+        <Button kind="tertiary" iconDescription="Изменить" icon={Edit} />
+        <DeleteConfirmation {name} type="pizza" let:confirm={confirmThis}>
+          <Button
+            kind="danger-tertiary"
+            iconDescription="Удалить"
+            icon={TrashCan}
+            on:click="{() => confirmThis(deletePizza)}"
+          />
+        </DeleteConfirmation>
+      </div>
+    {:else}
+      <Button icon={ShoppingCart}>В корзину</Button>
+    {/if}
   </div>
 </div>
 
@@ -45,6 +85,7 @@
     margin-bottom: 3rem;
     border-radius: 20px;
     padding: 2rem;
+    margin: calc(10% / 10);
   }
   .image {
     display: flex;
@@ -60,6 +101,7 @@
   }
   .ingredients {
     margin: 0.2rem 0 1rem 0;
+    min-height: 70px;
   }
   .footer {
     display: flex;

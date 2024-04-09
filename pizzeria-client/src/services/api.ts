@@ -29,7 +29,7 @@ const apiRequest = (
 
 const get = (url) => apiRequest("GET", url);
 
-const deleteRequest = (url, request) => apiRequest("DELETE", url, request);
+const deleteRequest = (url) => apiRequest("DELETE", url);
 
 const post = (url, request) => apiRequest("POST", url, request);
 

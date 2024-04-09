@@ -1,15 +1,15 @@
 <script lang="ts">
-  import Pizza from "./Pizza.svelte";
   import { onMount } from "svelte";
   import { Loading } from "carbon-components-svelte";
   import { get } from "svelte/store";
 
-  import PizzaDetailsModal from "./PizzaDetailsModal.svelte";
-  import pizzas from "../../store/pizzas-store";
-  import { addToast } from "../../store/alerts-store";
-  import API from "../../services/api";
+  import Pizza from "../components/Pizzas/Pizza.svelte";
+  import PizzaDetailsModal from "../components/Pizzas/PizzaDetailsModal.svelte";
+  import pizzas from "../store/pizzas-store";
+  import { addToast } from "../store/alerts-store";
+  import API from "../services/api";
 
-  let selectedPizza = null;
+  let selectedPizza: any = null;
   let isModalOpen = false;
   let isLoading = false;
 
@@ -21,26 +21,26 @@
     try {
       isLoading = true;
       const response = await API.get("/pizzas");
-      const updatedPizzas = response.map((p) => ({ ...p, size: 1 }));
+      const updatedPizzas = response.map((p: any) => ({ ...p, size: 1 }));
       pizzas.setPizzas(updatedPizzas);
       isLoading = false;
     } catch (error) {
       isLoading = false;
       addToast({
         type: "error",
-        title: "Error",
-        message: "Failed to load pizzas",
+        title: "Ошибка",
+        message: "Не удалось загрузить пиццы",
       });
     }
   };
 
-  const showDetailsModal = (e) => {
-    const pizza = get(pizzas).find((item) => item._id === e.detail);
+  const showDetailsModal = (e: any) => {
+    const pizza = get(pizzas).find((item: any) => item._id === e.detail);
     selectedPizza = pizza;
     isModalOpen = true;
   };
 
-  const selectSize = (e) => {
+  const selectSize = (e: any) => {
     const size = e.detail;
     selectedPizza = { ...selectedPizza, size: size };
   };
@@ -76,7 +76,7 @@
   .pizza-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 2rem;
   }
 </style>

@@ -1,10 +1,12 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   import { ContentSwitcher, Switch } from "carbon-components-svelte";
+
   import Modal from "../UI/Modal.svelte";
+  import type { Pizza } from "../../types";
 
   export let isModalOpen: boolean;
-  export let pizza;
+  export let pizza: Pizza;
 
   const dispatch = createEventDispatcher();
 </script>
