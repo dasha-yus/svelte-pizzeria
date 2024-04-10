@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onDestroy } from "svelte";
   import { ContentSwitcher, Switch, Button } from "carbon-components-svelte";
   import ShoppingCart from "carbon-icons-svelte/lib/ShoppingCart.svelte";
   import { TrashCan, Edit } from "carbon-icons-svelte";
@@ -8,6 +8,8 @@
   import { addToast } from "../../store/alerts-store";
   import pizzas from "../../store/pizzas-store";
   import DeleteConfirmation from "../UI/DeleteConfirmation.svelte";
+  import type { User } from "../../types";
+  import auth from "../../store/auth-store";
 
   export let id: string;
   export let name: string;
@@ -16,7 +18,10 @@
   export let sizes: any[];
 
   let selectedSize = 1;
-  let isAdmin = true;
+  let user: User | null;
+  let unsubscribe = auth.subscribe((u) => (user = u));
+
+  onDestroy(unsubscribe);
 
   const dispatch = createEventDispatcher();
 
@@ -60,7 +65,7 @@
   </ContentSwitcher>
   <div class="footer">
     <p class="price">{sizes[selectedSize].price} руб.</p>
-    {#if isAdmin}
+    {#if user && user.isAdmin}
       <div>
         <Button kind="tertiary" iconDescription="Изменить" icon={Edit} />
         <DeleteConfirmation {name} type="pizza" let:confirm={confirmThis}>

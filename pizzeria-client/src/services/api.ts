@@ -1,17 +1,25 @@
+
 import axios from "axios";
+import { variables } from "$lib/variables";
+import tokenStore from "../store/auth-store";
+import { onDestroy } from "svelte";
+
+let auth: any;
+let unsubscribe = tokenStore.subscribe((t) => (auth = t));
+
+onDestroy(unsubscribe);
 
 const axiosAPI = axios.create({
-  baseURL: "http://localhost:4000"
-  // baseURL: __myapp.env.API_URL,
+  baseURL: variables.apiBasePath,
 });
 
 const apiRequest = (
   method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH",
   url: string,
-  request?: any
+  request?: object
 ) => {
   const headers = {
-    authorization: "",
+    "x-auth-token": auth?.token,
   };
   return axiosAPI({
     method,
@@ -27,15 +35,16 @@ const apiRequest = (
     });
 };
 
-const get = (url) => apiRequest("GET", url);
+const get = (url: string) => apiRequest("GET", url);
 
-const deleteRequest = (url) => apiRequest("DELETE", url);
+const deleteRequest = (url: string) => apiRequest("DELETE", url);
 
-const post = (url, request) => apiRequest("POST", url, request);
+const post = (url: string, request: object) => apiRequest("POST", url, request);
 
-const put = (url, request) => apiRequest("PUT", url, request);
+const put = (url: string, request: object) => apiRequest("PUT", url, request);
 
-const patch = (url, request) => apiRequest("PATCH", url, request);
+const patch = (url: string, request: object) =>
+  apiRequest("PATCH", url, request);
 
 const API = {
   get,

@@ -32,3 +32,12 @@ export type ToastAlert = {
   message: string;
   timeout?: number;
 };
+
+export type User = {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  isAdmin: boolean;
+  token: string;
+}
