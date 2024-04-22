@@ -3,13 +3,7 @@ export type Pizza = {
   name: string;
   image: string;
   ingredients: string[];
-  sizes: [
-    {
-      size: "S" | "M" | "L";
-      weight: number;
-      price: number;
-    }
-  ];
+  sizes: [PizzaSize];
   size: number;
   details: {
     proteins: number;
@@ -17,6 +11,12 @@ export type Pizza = {
     carbohydrates: number;
     energy_value: number;
   };
+};
+
+export type PizzaSize = {
+  size: "S" | "M" | "L";
+  weight: number;
+  price: number;
 };
 
 export type ToastAlert = {
@@ -40,4 +40,4 @@ export type User = {
   email: string;
   isAdmin: boolean;
   token: string;
-}
+};

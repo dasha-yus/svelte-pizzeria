@@ -11,6 +11,21 @@ const customStore = {
       return items.filter((item: Pizza) => item._id !== id);
     });
   },
+  updatePizza: (id: string, pizza: Pizza) => {
+    pizzas.update((items: Pizza[]) => {
+      return items.map((item) => {
+        if (item._id === id) {
+          return pizza;
+        }
+        return item;
+      });
+    });
+  },
+  addPizza: (pizza: Pizza) => {
+    pizzas.update((items: Pizza[]) => {
+      return [...items, pizza];
+    });
+  },
 };
 
 export default customStore;

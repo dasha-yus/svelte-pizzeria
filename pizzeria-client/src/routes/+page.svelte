@@ -57,6 +57,7 @@
         image={pizza.image}
         ingredients={pizza.ingredients}
         sizes={pizza.sizes}
+        details={pizza.details}
         on:details={showDetailsModal}
       />
     {/each}

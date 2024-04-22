@@ -1,13 +1,10 @@
-
 import axios from "axios";
 import { variables } from "$lib/variables";
 import tokenStore from "../store/auth-store";
-import { onDestroy } from "svelte";
+import { browser } from "$app/environment";
 
 let auth: any;
-let unsubscribe = tokenStore.subscribe((t) => (auth = t));
-
-onDestroy(unsubscribe);
+tokenStore.subscribe((t) => (auth = t));
 
 const axiosAPI = axios.create({
   baseURL: variables.apiBasePath,
@@ -18,8 +15,13 @@ const apiRequest = (
   url: string,
   request?: object
 ) => {
+  if (browser) {
+    console.log();
+  }
   const headers = {
-    "x-auth-token": auth?.token,
+    "x-auth-token": browser
+      ? atob(localStorage.getItem("token") || "") || auth?.token
+      : auth?.token,
   };
   return axiosAPI({
     method,
@@ -53,4 +55,5 @@ const API = {
   put,
   patch,
 };
+
 export default API;

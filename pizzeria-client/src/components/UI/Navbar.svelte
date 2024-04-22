@@ -9,14 +9,17 @@
   import Logout from "carbon-icons-svelte/lib/Logout.svelte";
   import Login from "carbon-icons-svelte/lib/Login.svelte";
   import ShoppingCart from "carbon-icons-svelte/lib/ShoppingCart.svelte";
+  import AddAlt from "carbon-icons-svelte/lib/AddAlt.svelte";
   import { goto } from "$app/navigation";
   import { onDestroy } from "svelte";
 
   import auth from "../../store/auth-store";
   import type { User } from "../../types";
+  import PizzaEditorModal from "../Pizzas/PizzaEditorModal.svelte";
 
   let user: User | null;
   let unsubscribe = auth.subscribe((u) => (user = u));
+  let isCreateModalOpen = false;
 
   const logout = () => {
     auth.logOut();
@@ -35,6 +38,14 @@
     </HeaderNav>
   {/if}
   <HeaderUtilities>
+    {#if user?.isAdmin}
+      <HeaderGlobalAction
+        iconDescription="Добавить пиццу"
+        tooltipAlignment="end"
+        icon={AddAlt}
+        on:click={() => (isCreateModalOpen = true)}
+      />
+    {/if}
     {#if user}
       <HeaderGlobalAction
         iconDescription="Корзина"
@@ -65,12 +76,19 @@
   <div class="welcome-text">Добро пожаловать, {user.firstName}!</div>
 {/if}
 
+<PizzaEditorModal
+  isModalOpen={isCreateModalOpen}
+  mode="create"
+  pizza={null}
+  on:closeModal={() => (isCreateModalOpen = false)}
+/>
+
 <style>
   .welcome-text {
     color: #fff;
     position: absolute;
     top: 15px;
-    right: 130px;
+    right: 180px;
     z-index: 100000;
     font-size: 16px;
   }

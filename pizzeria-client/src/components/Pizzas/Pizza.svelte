@@ -10,13 +10,16 @@
   import DeleteConfirmation from "../UI/DeleteConfirmation.svelte";
   import type { User } from "../../types";
   import auth from "../../store/auth-store";
+  import PizzaEditorModal from "./PizzaEditorModal.svelte";
 
   export let id: string;
   export let name: string;
   export let image: string;
   export let ingredients: string[];
   export let sizes: any[];
+  export let details: any;
 
+  let isEditModalOpen = false;
   let selectedSize = 1;
   let user: User | null;
   let unsubscribe = auth.subscribe((u) => (user = u));
@@ -67,13 +70,18 @@
     <p class="price">{sizes[selectedSize].price} руб.</p>
     {#if user && user.isAdmin}
       <div>
-        <Button kind="tertiary" iconDescription="Изменить" icon={Edit} />
+        <Button
+          kind="tertiary"
+          iconDescription="Изменить"
+          icon={Edit}
+          on:click={() => (isEditModalOpen = true)}
+        />
         <DeleteConfirmation {name} type="pizza" let:confirm={confirmThis}>
           <Button
             kind="danger-tertiary"
             iconDescription="Удалить"
             icon={TrashCan}
-            on:click="{() => confirmThis(deletePizza)}"
+            on:click={() => confirmThis(deletePizza)}
           />
         </DeleteConfirmation>
       </div>
@@ -82,6 +90,19 @@
     {/if}
   </div>
 </div>
+<PizzaEditorModal
+  isModalOpen={isEditModalOpen}
+  mode="edit"
+  pizza={{
+    _id: id,
+    name,
+    image,
+    ingredients,
+    sizes,
+    details,
+  }}
+  on:closeModal={() => (isEditModalOpen = false)}
+/>
 
 <style>
   .pizza {
