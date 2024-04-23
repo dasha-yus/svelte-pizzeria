@@ -3,19 +3,20 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 
 const seedDB = require("./utils/seeds");
 const pizzaRoutes = require("./routes/pizza");
 const userRoutes = require("./routes/auth");
+const orderRoutes = require("./routes/order");
 
 const PORT = process.env.PORT || 4000;
 
-seedDB();
+// seedDB();
 
 app.use(cors());
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const start = async () => {
   try {
@@ -44,5 +45,6 @@ app.use((req, res, next) => {
 
 app.use(pizzaRoutes);
 app.use(userRoutes);
+app.use("/orders", orderRoutes);
 
 start();

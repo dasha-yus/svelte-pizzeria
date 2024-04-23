@@ -1,14 +1,45 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onDestroy } from "svelte";
   import { ContentSwitcher, Switch } from "carbon-components-svelte";
 
   import Modal from "../UI/Modal.svelte";
-  import type { Pizza } from "../../types";
+  import type { Pizza, User } from "../../types";
+  import API from "../../services/api";
+  import { addToast } from "../../store/alerts-store";
+  import auth from "../../store/auth-store";
 
   export let isModalOpen: boolean;
   export let pizza: Pizza;
 
+  let user: User | null;
+  let unsubscribe = auth.subscribe((u) => (user = u));
+
+  onDestroy(unsubscribe);
+
   const dispatch = createEventDispatcher();
+
+  const addToCart = async () => {
+    try {
+      await API.post(`/orders`, {
+        pizzaId: pizza._id,
+        userId: user?._id,
+        quantity: 1,
+        size: pizza.size === 0 ? "S" : pizza.size === 1 ? "M" : "L",
+      });
+      addToast({
+        type: "success",
+        title: "Корзина обновлена",
+        message: `Пицца '${pizza.name}' успешно добавлена в корзину`,
+      });
+    } catch (error) {
+      addToast({
+        type: "error",
+        title: "Ошибка",
+        message: `Не удалось добавить пиццу '${pizza.name}' в корзину`,
+      });
+    }
+    dispatch("closeModal");
+  };
 </script>
 
 <Modal
@@ -17,6 +48,7 @@
   primaryButtonText="В корзину"
   secondaryButtonText="Закрыть"
   on:closeModal={() => dispatch("closeModal")}
+  on:submit={addToCart}
   ><div class="details">
     <div class="image-container">
       <svg

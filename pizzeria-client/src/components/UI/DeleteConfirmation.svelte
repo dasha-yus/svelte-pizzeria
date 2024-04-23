@@ -2,7 +2,7 @@
   import { Modal } from "carbon-components-svelte";
 
   export let name: string;
-  export let type: "user" | "pizza";
+  export let type: "order" | "pizza";
 
   let showDialog = false;
   let functionToCall = {
@@ -28,7 +28,7 @@
   size="sm"
   bind:open={showDialog}
   modalHeading={`Вы уверены, что хотите удалить ${
-    type === "pizza" ? "пиццу" : "пользователя"
+    type === "pizza" ? "пиццу" : "заказ"
   } '${name}'?`}
   primaryButtonText="Удалить"
   secondaryButtonText="Отмена"

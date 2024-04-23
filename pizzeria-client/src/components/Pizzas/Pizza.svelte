@@ -45,6 +45,29 @@
       });
     }
   };
+
+  const addToCart = async () => {
+    try {
+      await API.post(`/orders`, {
+        pizzaId: id,
+        userId: user?._id,
+        quantity: 1,
+        size: selectedSize === 0 ? "S" : selectedSize === 1 ? "M" : "L",
+      });
+      addToast({
+        type: "success",
+        title: "Корзина обновлена",
+        message: `Пицца '${name}' успешно добавлена в корзину`,
+      });
+    } catch (error) {
+      addToast({
+        type: "error",
+        title: "Ошибка",
+        message: `Не удалось добавить пиццу '${name}' в корзину`,
+      });
+    }
+    dispatch("closeModal");
+  };
 </script>
 
 <div class="pizza">
@@ -86,7 +109,7 @@
         </DeleteConfirmation>
       </div>
     {:else}
-      <Button icon={ShoppingCart}>В корзину</Button>
+      <Button icon={ShoppingCart} on:click={addToCart}>В корзину</Button>
     {/if}
   </div>
 </div>

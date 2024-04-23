@@ -51,6 +51,7 @@
         iconDescription="Корзина"
         tooltipAlignment="end"
         icon={ShoppingCart}
+        href="/basket"
       />
     {/if}
     {#if !user}
